@@ -1,0 +1,40 @@
+/* 한글 텍스트가 음절 단위로 쪼개져 줄바꿈되지 않도록 어절 단위로만 줄바꿈 */
+body {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* 스크롤 등장 애니메이션 대상 요소 - main.js의 IntersectionObserver가 is-visible 클래스를 부여 */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 커스텀 스크롤바 */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(34, 211, 238, 0.6);
+}
+
+/* 네비게이션 활성 링크 표시 */
+.nav-link.active {
+  color: #22d3ee;
+}

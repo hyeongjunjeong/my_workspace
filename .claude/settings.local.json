@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(npm *)",
+      "PowerShell(winget list *)",
+      "PowerShell(winget install *)",
+      "PowerShell($env:PATH = [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"User\"\\); npx playwright install chromium)",
+      "PowerShell(claude mcp *)",
+      "PowerShell(npx @playwright/mcp@latest --version 2>&1)",
+      "PowerShell($nodePath = \\(Get-Command node -ErrorAction SilentlyContinue\\).Source; $npmPath = \\(Get-Command npm -ErrorAction SilentlyContinue\\).Source; \"node: $nodePath\"; \"npm: $npmPath\")",
+      "PowerShell(npx playwright --version 2>$null; if \\(-not $?\\) { \"playwright not found in PATH\" })",
+      "mcp__playwright__browser_navigate",
+      "PowerShell(npx --yes @upstash/context7-mcp --version 2>&1 | Select-Object -First 5)",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__query-docs",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_type",
+      "mcp__playwright__browser_snapshot",
+      "mcp__firecrawl-mcp__firecrawl_scrape",
+      "PowerShell(Start-Process \"C:\\\\Users\\\\jhj03\\\\my_workspace\\\\toss_tech_articles.csv\")",
+      "PowerShell(Get-Content \"C:\\\\Users\\\\jhj03\\\\my_workspace\\\\toss_tech_articles.csv\" -Encoding UTF8 | ForEach-Object { $_ })",
+      "PowerShell(Get-Content *)",
+      "mcp__sequential-thinking__sequentialthinking",
+      "PowerShell(\\(Get-Command uvx -ErrorAction SilentlyContinue\\).Source; \\(Get-Command uv -ErrorAction SilentlyContinue\\).Source)",
+      "PowerShell(\\(Get-Command winget -ErrorAction SilentlyContinue\\).Source; \\(Get-Command scoop -ErrorAction SilentlyContinue\\).Source; \\(Get-Command choco -ErrorAction SilentlyContinue\\).Source)",
+      "PowerShell(uvx *)",
+      "PowerShell(\\(Get-Command git -ErrorAction SilentlyContinue\\).Source)",
+      "WebSearch",
+      "WebFetch(domain:www.claudepluginhub.com)",
+      "WebFetch(domain:docs.claude.com)",
+      "PowerShell(Start-Process wt.exe -ArgumentList \"-d\", \"C:\\\\Users\\\\jhj03\\\\my_workspace\" -ErrorAction SilentlyContinue; if \\(-not $?\\) { Start-Process powershell.exe -ArgumentList \"-NoExit\", \"-Command\", \"cd C:\\\\Users\\\\jhj03\\\\my_workspace\" })",
+      "Read(//c/Users/jhj03/.claude/**)",
+      "PowerShell(Get-Command *)"
+    ]
+  }
+}

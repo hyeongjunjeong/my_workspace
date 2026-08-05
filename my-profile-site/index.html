@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>정형준 | SW 설계운용 전문가</title>
+<meta name="description" content="약 8년 경력의 SW 설계운용 전문가 정형준의 포트폴리오 사이트" />
+
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          accent: {
+            DEFAULT: '#22d3ee',
+            light: '#67e8f9',
+            dark: '#0891b2',
+          },
+        },
+        fontFamily: {
+          sans: ['Pretendard', 'Noto Sans KR', 'system-ui', 'sans-serif'],
+        },
+        animation: {
+          'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+          'blob': 'blob 7s infinite',
+        },
+        keyframes: {
+          fadeInUp: {
+            '0%': { opacity: '0', transform: 'translateY(24px)' },
+            '100%': { opacity: '1', transform: 'translateY(0)' },
+          },
+          blob: {
+            '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
+            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+          },
+        },
+      },
+    },
+  };
+</script>
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-200 font-sans scroll-smooth transition-colors duration-300">
+
+<!-- ============ 네비게이션 바 ============ -->
+<header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/70 dark:bg-slate-950/70 border-b border-slate-200 dark:border-slate-800">
+  <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#home" class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">
+      정형준<span class="text-accent">.</span>
+    </a>
+
+    <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <li><a href="#about" class="nav-link hover:text-accent transition-colors" data-section="about">소개</a></li>
+      <li><a href="#skills" class="nav-link hover:text-accent transition-colors" data-section="skills">기술 스택</a></li>
+      <li><a href="#projects" class="nav-link hover:text-accent transition-colors" data-section="projects">주요 업무</a></li>
+      <li><a href="#plan" class="nav-link hover:text-accent transition-colors" data-section="plan">발전 계획</a></li>
+      <li><a href="#contact" class="nav-link hover:text-accent transition-colors" data-section="contact">연락처</a></li>
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <!-- 다크/라이트 토글 -->
+      <button id="theme-toggle" aria-label="다크모드 전환" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+        <svg id="icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+        <svg id="icon-moon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+      </button>
+
+      <!-- 모바일 메뉴 버튼 -->
+      <button id="mobile-menu-btn" aria-label="메뉴 열기" class="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 모바일 메뉴 -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+    <ul class="flex flex-col px-6 py-4 gap-4 text-sm font-medium">
+      <li><a href="#about" class="mobile-nav-link block">소개</a></li>
+      <li><a href="#skills" class="mobile-nav-link block">기술 스택</a></li>
+      <li><a href="#projects" class="mobile-nav-link block">주요 업무</a></li>
+      <li><a href="#plan" class="mobile-nav-link block">발전 계획</a></li>
+      <li><a href="#contact" class="mobile-nav-link block">연락처</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ============ 히어로 섹션 ============ -->
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-20">
+  <!-- 배경 장식 blob -->
+  <div class="absolute inset-0 -z-10 overflow-hidden">
+    <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-accent/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl animate-blob"></div>
+    <div class="absolute top-1/3 right-1/4 w-72 h-72 bg-indigo-400/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl animate-blob" style="animation-delay: 2s;"></div>
+    <div class="absolute bottom-1/4 left-1/3 w-72 h-72 bg-cyan-300/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl animate-blob" style="animation-delay: 4s;"></div>
+  </div>
+
+  <div class="max-w-4xl mx-auto text-center">
+    <!-- 프로필 이미지 -->
+    <div class="mb-8 flex justify-center fade-in-section">
+      <div class="relative w-36 h-36 md:w-44 md:h-44">
+        <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-accent to-indigo-500 blur-sm opacity-70"></div>
+        <img
+          src="images/profile.jpg"
+          alt="정형준 프로필 사진"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          class="relative w-full h-full rounded-full object-cover border-4 border-white dark:border-slate-950"
+        />
+        <div style="display:none;" class="absolute inset-0 rounded-full border-4 border-white dark:border-slate-950 bg-gradient-to-br from-slate-700 to-slate-900 dark:from-slate-800 dark:to-slate-950 items-center justify-center text-4xl font-bold text-white">
+          HJ
+        </div>
+      </div>
+    </div>
+
+    <p class="fade-in-section text-accent font-semibold tracking-wide mb-3">PORTFOLIO</p>
+    <h1 class="fade-in-section text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4">
+      정형준
+    </h1>
+    <p class="fade-in-section text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-300 mb-6">
+      SW 설계운용 전문가 &amp; <span class="text-accent">시스템 개발/PM</span>
+    </p>
+    <p class="fade-in-section max-w-2xl mx-auto text-slate-500 dark:text-slate-400 leading-relaxed mb-10">
+      약 8년, 주요 공기업·공공기관 시스템 개발 및 운영·관리 경력.<br class="hidden md:block" />
+      안주하지 않는 학습과 개선, 완성도 높은 시스템을 향한 성장.
+    </p>
+
+    <div class="fade-in-section flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="#projects" class="w-full sm:w-auto px-8 py-3 rounded-full bg-accent text-slate-900 font-semibold hover:bg-accent-light transition-colors shadow-lg shadow-accent/30">
+        주요 업무 보기
+      </a>
+      <a href="https://github.com/hyeongjunjeong" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-3 rounded-full border border-slate-300 dark:border-slate-700 font-semibold hover:border-accent hover:text-accent transition-colors">
+        GitHub 방문하기
+      </a>
+    </div>
+  </div>
+
+  <a href="#about" aria-label="아래로 스크롤" class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-slate-400 dark:text-slate-600">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+  </a>
+</section>
+
+<!-- ============ 소개 섹션 ============ -->
+<section id="about" class="py-24 px-6 bg-slate-50 dark:bg-slate-900/50">
+  <div class="max-w-4xl mx-auto">
+    <div class="fade-in-section text-center mb-16">
+      <h2 class="text-sm font-bold text-accent tracking-widest uppercase mb-2">About Me</h2>
+      <p class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">소개</p>
+    </div>
+
+    <div class="fade-in-section grid md:grid-cols-3 gap-8 items-start mb-20">
+      <div class="md:col-span-2 space-y-4 text-slate-600 dark:text-slate-300 leading-loose">
+        <p>
+          현실에 안주하지 않는 <strong class="text-slate-900 dark:text-white">성장형 SW 설계운용 전문가</strong> 정형준.
+          약 8년간 주요 공기업 및 공공기관에서 수행한 시스템 개발과 운영·관리 경력.
+        </p>
+        <p>
+          eGovFrame(Java, Spring 등) 기반의 백엔드 개발, JS(Vue, React) 기반의 프론트엔드 개발,
+          Oracle·MySQL 기반의 데이터베이스 운영 및 최적화까지 아우르는 시스템 전 영역의 기술 역량.
+        </p>
+        <p>
+          지속적인 시스템·DB 분석과 형상 관리를 통한 서비스 품질 향상,
+          다양한 이해관계자와의 소통을 바탕으로 한 안정적인 시스템 운영이 강점.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-1 gap-4">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-center">
+          <p class="text-3xl font-extrabold text-accent">8+</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">IT 경력 (년)</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-center">
+          <p class="text-3xl font-extrabold text-accent">3</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">공기업/공공기관 근무</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 경력 타임라인 -->
+    <div class="fade-in-section">
+      <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-8 text-center">경력 사항</h3>
+      <div class="space-y-6">
+        <div class="relative pl-8 pb-6 border-l-2 border-slate-200 dark:border-slate-700 last:border-transparent last:pb-0">
+          <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent"></span>
+          <p class="text-xs font-semibold text-accent mb-1">2024.03 ~ 재직중</p>
+          <h4 class="font-bold text-slate-900 dark:text-white">한국전력공사 · 시스템지능화부 대리</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+            시스템 공통 프로세스 운영 및 내부 통제, 시스템 분석 모니터링 및 내부회계/전산 감사,
+            ICT 위탁·운영관리, 사내 홈페이지 운영·유지관리, 기타 통신 설비 관리 등
+          </p>
+        </div>
+        <div class="relative pl-8 pb-6 border-l-2 border-slate-200 dark:border-slate-700 last:border-transparent last:pb-0">
+          <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+          <p class="text-xs font-semibold text-accent mb-1">2023.10 ~ 2024.03</p>
+          <h4 class="font-bold text-slate-900 dark:text-white">한국인터넷진흥원 · 스팸정책팀 주임연구원</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+            스팸대응시스템 및 어플리케이션 운영·유지관리
+          </p>
+        </div>
+        <div class="relative pl-8 border-l-2 border-transparent">
+          <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+          <p class="text-xs font-semibold text-accent mb-1">2018.06 ~ 2023.10</p>
+          <h4 class="font-bold text-slate-900 dark:text-white">한국전력기술 · ICT운영부 사원</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+            ERP-MIS(인사, 조직, 급여, 복지 등), 그룹웨어(사내 포털, 메일, 전자결재),
+            홈페이지 시스템 운영 및 유지관리, 사내 및 국정원 감사 대응 등
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 기술 스택 섹션 ============ -->
+<section id="skills" class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="fade-in-section text-center mb-16">
+      <h2 class="text-sm font-bold text-accent tracking-widest uppercase mb-2">Skills</h2>
+      <p class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">기술 스택</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- 프레임워크 -->
+      <div class="fade-in-section p-6 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-accent hover:-translate-y-1 transition-all duration-300">
+        <div class="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" /><path stroke-linecap="round" stroke-linejoin="round" d="M4 10h16M10 4v16" /></svg>
+        </div>
+        <h3 class="font-bold text-slate-900 dark:text-white mb-3">프레임워크</h3>
+        <ul class="space-y-1 text-sm text-slate-500 dark:text-slate-400">
+          <li>전자정부프레임워크(eGovFrame)</li>
+          <li>Spring Framework</li>
+        </ul>
+      </div>
+
+      <!-- 언어 -->
+      <div class="fade-in-section p-6 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-accent hover:-translate-y-1 transition-all duration-300">
+        <div class="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16M6 8L2 12l4 4M18 8l4 4-4 4" /></svg>
+        </div>
+        <h3 class="font-bold text-slate-900 dark:text-white mb-3">언어 &amp; 프론트엔드</h3>
+        <ul class="space-y-1 text-sm text-slate-500 dark:text-slate-400">
+          <li>Java</li>
+          <li>JavaScript (Vue, React)</li>
+        </ul>
+      </div>
+
+      <!-- 데이터베이스 -->
+      <div class="fade-in-section p-6 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-accent hover:-translate-y-1 transition-all duration-300">
+        <div class="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7c0-1.66 3.58-3 8-3s8 1.34 8 3-3.58 3-8 3-8-1.34-8-3zm0 0v10c0 1.66 3.58 3 8 3s8-1.34 8-3V7M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" /></svg>
+        </div>
+        <h3 class="font-bold text-slate-900 dark:text-white mb-3">데이터베이스</h3>
+        <ul class="space-y-1 text-sm text-slate-500 dark:text-slate-400">
+          <li>Oracle DB</li>
+          <li>MySQL</li>
+        </ul>
+      </div>
+
+      <!-- 핵심 역량 -->
+      <div class="fade-in-section p-6 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-accent hover:-translate-y-1 transition-all duration-300">
+        <div class="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+        </div>
+        <h3 class="font-bold text-slate-900 dark:text-white mb-3">핵심 역량</h3>
+        <ul class="space-y-1 text-sm text-slate-500 dark:text-slate-400">
+          <li>시스템 분석 &amp; 문제 해결</li>
+          <li>이해관계자 소통·협업</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 프로젝트 섹션 ============ -->
+<section id="projects" class="py-24 px-6 bg-slate-50 dark:bg-slate-900/50">
+  <div class="max-w-7xl mx-auto">
+    <div class="fade-in-section text-center mb-16">
+      <h2 class="text-sm font-bold text-accent tracking-widest uppercase mb-2">Works</h2>
+      <p class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">주요 업무 사례</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- 업무 사례 1: 안정적인 시스템 운영 및 최적화 -->
+      <article class="fade-in-section group rounded-2xl overflow-hidden bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-accent hover:-translate-y-1 transition-all duration-300">
+        <div class="h-40 bg-gradient-to-br from-accent/30 to-indigo-500/30 flex items-center justify-center">
+          <svg class="w-14 h-14 text-white/80" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" /></svg>
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2">안정적인 시스템 운영 및 최적화</h3>
+          <ul class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-4 space-y-1.5 list-disc list-inside">
+            <li>DB 개선 및 최적화: 중복 데이터 분리·체크 스케줄러 생성, 인덱스 설계 및 쿼리 최적화</li>
+            <li>CMMI Level 상승: 중장기 ERP-MIS 시스템 거버넌스 기획·구축, 예산·자산 운용관리, 보안 취약점 개선 이행</li>
+            <li>사내 전 시스템 분류 및 구조 최적화: 연계점 분석, Branch 체계화, NAS/Cloud 전환</li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs rounded-full bg-accent/10 text-accent font-medium">Oracle</span>
+            <span class="px-2.5 py-1 text-xs rounded-full bg-accent/10 text-accent font-medium">DB 튜닝</span>
+            <span class="px-2.5 py-1 text-xs rounded-full bg-accent/10 text-accent font-medium">위탁운영관리</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 업무 사례 2: 시스템 및 업무 프로세스 개선 -->
+      <article class="fade-in-section group rounded-2xl overflow-hidden bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-accent hover:-translate-y-1 transition-all duration-300">
+        <div class="h-40 bg-gradient-to-br from-indigo-500/30 to-cyan-400/30 flex items-center justify-center">
+          <svg class="w-14 h-14 text-white/80" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2">시스템 및 업무 프로세스 개선</h3>
+          <ul class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-4 space-y-1.5 list-disc list-inside">
+            <li>CS → WEB 전환: 복지 시스템(건강검진, 학자금 등) 재개발 및 통합 복지 시스템 기획·구축</li>
+            <li>어플리케이션 기능 강화: 사용자 피드백 기반 UI/UX 개선, 다중 보안인증(MAC~PER) 적용</li>
+            <li>SMTP·SOAP 프로토콜 개선: 그룹웨어 재개발, 트래픽 성능 개선, 통신 보안 취약점 개선 및 속도 최적화 완료</li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs rounded-full bg-accent/10 text-accent font-medium">eGovFrame</span>
+            <span class="px-2.5 py-1 text-xs rounded-full bg-accent/10 text-accent font-medium">UI/UX</span>
+            <span class="px-2.5 py-1 text-xs rounded-full bg-accent/10 text-accent font-medium">보안</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 업무 사례 3: 개인 역량 향상 -->
+      <article class="fade-in-section group rounded-2xl overflow-hidden bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-accent hover:-translate-y-1 transition-all duration-300">
+        <div class="h-40 bg-gradient-to-br from-cyan-400/30 to-accent/30 flex items-center justify-center">
+          <svg class="w-14 h-14 text-white/80" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2">개인 역량 향상</h3>
+          <ul class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-4 space-y-1.5 list-disc list-inside">
+            <li>논문 집필 및 관련 프로그램 개발: 마커리스 기술을 이용한 증강현실 프로그램 개발</li>
+            <li>공모전 수상: 공공데이터를 이용한 교통 데이터 공유 플랫폼 구축</li>
+            <li>RPA 개발: 업무데이터 등록 자동화, 요청 및 민원 사항 분류 자동화 시스템 개발</li>
+            <li>신기술 학습(진행중): 공개 API를 이용한 퀀트 투자 프로그램(Python) 개발</li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs rounded-full bg-accent/10 text-accent font-medium">RPA</span>
+            <span class="px-2.5 py-1 text-xs rounded-full bg-accent/10 text-accent font-medium">Python</span>
+            <span class="px-2.5 py-1 text-xs rounded-full bg-accent/10 text-accent font-medium">증강현실</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 향후 발전 계획 섹션 ============ -->
+<section id="plan" class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="fade-in-section text-center mb-16">
+      <h2 class="text-sm font-bold text-accent tracking-widest uppercase mb-2">Plan</h2>
+      <p class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">향후 발전 계획</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="fade-in-section p-8 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-4">단기 계획</h3>
+        <ul class="space-y-3 text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+          <li class="flex gap-2"><span class="text-accent">·</span>담당 업무 시스템 이해 및 분석 (소스 코드·업무 프로세스 이해, 서버·시스템 간 관계도 분석)</li>
+          <li class="flex gap-2"><span class="text-accent">·</span>사내 시스템 체계 및 형상관리(브랜치) 분석, 사내 정책·기술 분석</li>
+          <li class="flex gap-2"><span class="text-accent">·</span>개인 프로젝트: 파이썬 퀀트 투자 시스템 개발 및 테스트 이행</li>
+        </ul>
+      </div>
+
+      <div class="fade-in-section p-8 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-4">중·장기 계획</h3>
+        <ul class="space-y-3 text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+          <li class="flex gap-2"><span class="text-accent font-bold">2년</span>석사과정 및 내부 자격 교육 이수</li>
+          <li class="flex gap-2"><span class="text-accent font-bold">3+</span>외부 자격 취득 및 세미나 참여</li>
+          <li class="flex gap-2"><span class="text-accent font-bold">10+</span>연간 전문 교육 과정 이수 계획</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 연락처 섹션 ============ -->
+<section id="contact" class="py-24 px-6">
+  <div class="max-w-3xl mx-auto text-center">
+    <div class="fade-in-section mb-12">
+      <h2 class="text-sm font-bold text-accent tracking-widest uppercase mb-2">Contact</h2>
+      <p class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">연락처</p>
+      <p class="text-slate-500 dark:text-slate-400">
+        새로운 프로젝트 및 협업 제안 환영.
+      </p>
+    </div>
+
+    <div class="fade-in-section">
+      <a
+        href="https://github.com/hyeongjunjeong"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-4 px-8 py-5 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-accent hover:-translate-y-1 transition-all duration-300 shadow-sm"
+      >
+        <svg class="w-8 h-8 text-slate-900 dark:text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.333-1.755-1.333-1.755-1.089-.744.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+        </svg>
+        <div class="text-left">
+          <p class="font-bold text-slate-900 dark:text-white">GitHub</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400">github.com/hyeongjunjeong</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 푸터 ============ -->
+<footer class="py-8 px-6 border-t border-slate-200 dark:border-slate-800">
+  <div class="max-w-6xl mx-auto text-center text-sm text-slate-400 dark:text-slate-500">
+    <p>&copy; <span id="year"></span> 정형준. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
