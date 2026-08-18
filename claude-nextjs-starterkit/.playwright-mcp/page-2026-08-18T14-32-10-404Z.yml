@@ -1,0 +1,36 @@
+- generic [active] [ref=f1e1]:
+  - generic [ref=f1e2]:
+    - banner [ref=f1e3]:
+      - heading "Claude Next.js Starter Kit" [level=1] [ref=f1e4]
+      - navigation [ref=f1e5]:
+        - button "소개" [ref=f1e6] [cursor=pointer]
+        - button "대시보드" [ref=f1e7] [cursor=pointer]
+        - button "다크모드 전환" [ref=f1e8]
+    - generic [ref=f1e9]:
+      - heading "포함된 스택" [level=2] [ref=f1e10]
+      - generic [ref=f1e11]:
+        - generic [ref=f1e13]:
+          - generic [ref=f1e14]: Next.js 16
+          - generic [ref=f1e15]: App Router 기반 React 프레임워크
+        - generic [ref=f1e17]:
+          - generic [ref=f1e18]: React 19
+          - generic [ref=f1e19]: 최신 React 런타임
+        - generic [ref=f1e21]:
+          - generic [ref=f1e22]: Tailwind CSS v4
+          - generic [ref=f1e23]: 유틸리티 우선 CSS 프레임워크
+        - generic [ref=f1e25]:
+          - generic [ref=f1e26]: Base UI
+          - generic [ref=f1e27]: 접근성을 갖춘 헤드리스 컴포넌트
+    - generic [ref=f1e28]:
+      - heading "버튼 컴포넌트" [level=2] [ref=f1e29]
+      - generic [ref=f1e31]:
+        - button "Default" [ref=f1e32]
+        - button "Outline" [ref=f1e33]
+        - button "Secondary" [ref=f1e34]
+        - button "Ghost" [ref=f1e35]
+        - button "Destructive" [ref=f1e36]
+        - button "Link" [ref=f1e37]
+    - generic [ref=f1e38]:
+      - heading "Input 컴포넌트" [level=2] [ref=f1e39]
+      - textbox "you@example.com" [ref=f1e42]
+  - button "Open Next.js Dev Tools" [ref=f1e48] [cursor=pointer]

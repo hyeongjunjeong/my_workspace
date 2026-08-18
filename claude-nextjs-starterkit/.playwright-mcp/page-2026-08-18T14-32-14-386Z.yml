@@ -1,0 +1,12 @@
+- generic [active] [ref=f2e1]:
+  - generic [ref=f2e2]:
+    - banner [ref=f2e3]:
+      - heading "소개" [level=1] [ref=f2e4]
+      - button "홈으로" [ref=f2e5] [cursor=pointer]
+    - generic [ref=f2e7]:
+      - generic [ref=f2e8]:
+        - generic [ref=f2e9]: Claude Next.js Starter Kit
+        - generic [ref=f2e10]: Next.js 16, React 19, Tailwind CSS v4, Base UI로 구성된 모던 웹 스타터킷입니다
+      - generic [ref=f2e11]: 새 프로젝트를 빠르게 시작할 수 있도록 기본 레이아웃, 다크모드 전환, 재사용 가능한 UI 컴포넌트를 제공합니다
+  - button "Open Next.js Dev Tools" [ref=f2e17] [cursor=pointer]
+  - alert [ref=f2e21]

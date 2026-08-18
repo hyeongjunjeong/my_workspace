@@ -1,0 +1,23 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e47] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e48]
+    - generic [ref=e52]:
+      - button "Open issues overlay" [ref=e53]:
+        - generic [ref=e54]:
+          - generic [ref=e55]: "2"
+          - generic [ref=e56]: "3"
+        - generic [ref=e57]:
+          - text: Issue
+          - generic [ref=e58]: s
+      - button "Collapse issues badge" [ref=e59]
+  - alert [ref=e62]
+  - generic [ref=e63]:
+    - banner [ref=e64]:
+      - heading "소개" [level=1] [ref=e65]
+      - link "홈으로" [ref=e66] [cursor=pointer]:
+        - /url: /
+    - generic [ref=e68]:
+      - generic [ref=e69]:
+        - generic [ref=e70]: Claude Next.js Starter Kit
+        - generic [ref=e71]: Next.js 16, React 19, Tailwind CSS v4, Base UI로 구성된 모던 웹 스타터킷입니다
+      - generic [ref=e72]: 새 프로젝트를 빠르게 시작할 수 있도록 기본 레이아웃, 다크모드 전환, 재사용 가능한 UI 컴포넌트를 제공합니다
