@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -6,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
 import { ThemeToggle } from '@/components/theme-toggle'
 
 const stack = [
@@ -32,7 +35,19 @@ export default function Home() {
     <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-10 px-6 py-10">
       <header className="flex items-center justify-between">
         <h1 className="text-lg font-semibold">Claude Next.js Starter Kit</h1>
-        <ThemeToggle />
+        <nav className="flex items-center gap-2">
+          <Button
+            variant="ghost"
+            nativeButton={false}
+            render={<Link href="/about">소개</Link>}
+          />
+          <Button
+            variant="ghost"
+            nativeButton={false}
+            render={<Link href="/dashboard">대시보드</Link>}
+          />
+          <ThemeToggle />
+        </nav>
       </header>
 
       <section className="flex flex-col gap-4">
@@ -63,6 +78,17 @@ export default function Home() {
             <Button variant="ghost">Ghost</Button>
             <Button variant="destructive">Destructive</Button>
             <Button variant="link">Link</Button>
+          </CardContent>
+        </Card>
+      </section>
+
+      <section className="flex flex-col gap-4">
+        <h2 className="text-sm font-medium text-muted-foreground">
+          Input 컴포넌트
+        </h2>
+        <Card>
+          <CardContent>
+            <Input type="email" placeholder="you@example.com" />
           </CardContent>
         </Card>
       </section>
