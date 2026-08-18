@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Claude Next.js Starter Kit
 
-## Getting Started
+빠르게 웹 개발을 시작할 수 있도록 구성한 모던 웹 스타터킷입니다.
 
-First, run the development server:
+## 스택
+
+- [Next.js 16](https://nextjs.org) (App Router, Turbopack)
+- [React 19](https://react.dev)
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [Base UI](https://base-ui.com) — 헤드리스 컴포넌트 프리미티브
+- [class-variance-authority](https://cva.style/docs) — 컴포넌트 variant 관리
+- [lucide-react](https://lucide.dev) — 아이콘
+
+## 시작하기
+
+개발 서버 실행:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000)에서 결과를 확인할 수 있습니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+주요 명령어:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev    # 개발 서버 실행
+npm run build  # 프로덕션 빌드
+npm run start  # 프로덕션 서버 실행
+npm run lint   # 린트 검사
+```
 
-## Learn More
+## 폴더 구조
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/                라우트, 레이아웃, 전역 스타일
+  layout.tsx         루트 레이아웃 (메타데이터, 폰트, 다크모드 초기화 스크립트)
+  page.tsx            홈페이지
+  loading.tsx          라우트 전환 시 로딩 UI
+  error.tsx             에러 바운더리
+  not-found.tsx          404 페이지
+  global-error.tsx        루트 레이아웃 레벨 에러 바운더리
+components/          재사용 컴포넌트
+  ui/                  기본 UI 컴포넌트 (Button, Card, Input 등)
+  theme-toggle.tsx      다크모드 토글 버튼
+hooks/                커스텀 훅
+  use-theme.ts           다크모드 상태 훅
+lib/                  유틸리티 함수
+  utils.ts               cn() 클래스 병합 함수
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 다크모드
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`app/globals.css`에 라이트/다크 테마 CSS 변수가 정의되어 있고, `hooks/use-theme.ts`와
+`components/theme-toggle.tsx`로 `html` 엘리먼트의 `dark` 클래스를 토글합니다.
+`app/layout.tsx`의 인라인 스크립트가 하이드레이션 전에 저장된 테마를 적용해
+화면 깜빡임(FOUC)을 방지합니다.
 
-## Deploy on Vercel
+## 컴포넌트 추가하기
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`components/ui/`의 컴포넌트는 [Base UI](https://base-ui.com) 프리미티브를
+[class-variance-authority](https://cva.style/docs)로 감싸는 패턴을 따릅니다
+(`components/ui/button.tsx` 참고). 새 컴포넌트를 추가할 때도 동일한 패턴
+(`data-slot` 속성, `cn()`을 통한 클래스 병합)을 유지해주세요.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`components.json`에 shadcn CLI 설정(`style: "base-nova"`)이 정의되어 있어
+`npx shadcn add <컴포넌트>`로도 호환 컴포넌트를 추가할 수 있습니다.
