@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Playwright MCP로 브라우저 검증 시 생성되는 임시 산출물 (커밋 대상 아님)
+# .playwright-mcp/
+# home.png
