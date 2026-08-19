@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { useTheme } from '@/hooks/use-theme'
 
 export function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme()
+  const { theme, toggleTheme, mounted } = useTheme()
 
   return (
     <Button
@@ -15,7 +15,7 @@ export function ThemeToggle() {
       aria-label="다크모드 전환"
       onClick={toggleTheme}
     >
-      {theme === 'dark' ? <Sun /> : <Moon />}
+      {mounted && theme === 'dark' ? <Sun /> : <Moon />}
     </Button>
   )
 }
